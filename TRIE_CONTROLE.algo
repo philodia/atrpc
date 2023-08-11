@@ -1,0 +1,30 @@
+ALGORITHM SortParInsertion
+     BEGINNING
+         DECLARE array: ARRAY[1..N] OF INTEGER
+         DECLARE i, j, key: INTEGER
+        
+         // Enter values in the array
+         FOR i FROM 1 TO N DO
+             WRITE "Enter the value for the element at index ", i
+             READ array[i]
+         END FOR
+        
+         // Insertion sort
+         FOR i FROM 2 TO N DO
+             ASSIGN key <- array[i]
+             ASSIGN j <- i - 1
+            
+             WHILE j >= 0 AND array[j] > key DO
+                 ASSIGN array[j + 1] <- array[j]
+                 ASSIGN j <- j - 1
+             END WHILE
+            
+             ASSIGN array[j + 1] <- key
+         END FOR
+        
+         // Display of the sorted array
+         WRITE "Sorted array:"
+         FOR i FROM 1 TO N DO
+             WRITE array[i]
+         END FOR
+     END
